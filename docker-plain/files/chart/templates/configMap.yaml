@@ -1,4 +1,5 @@
-{{- if false -}}
+{{- if true -}}
+{{- $APIVersions := .Capabilities.APIVersions | sortAlpha  -}}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -7,7 +8,7 @@ metadata:
     {{- include "chart.labels" . | nindent 4 }}
 data:
   capabilities: |
-    {{- range $capability := .Capabilities.APIVersions }}
+    {{- range $capability := $APIVersions }}
     - {{ $capability }}
     {{- end }}
   kubeVersion: {{ printf "%#v" .Capabilities.KubeVersion }}

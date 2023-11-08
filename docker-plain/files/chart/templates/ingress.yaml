@@ -33,7 +33,7 @@ spec:
         {{- range .hosts }}
         - {{ . | quote }}
         {{- end }}
-      secretName: {{ .secretName }}
+      secretName: {{ printf "%s-%s" $fullName "ingress-tls-secret" | trunc 63 | quote }}
     {{- end }}
   {{- end }}
   rules:

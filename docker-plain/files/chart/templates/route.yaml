@@ -7,7 +7,8 @@ metadata:
     {{- include "chart.labels" . | nindent 4 }}
 spec:
   # BUG(serverhorror): FIXME
-  host: {{ include "chart.fullname" . }}
+  host: chart-example-tls.eu-dev.ocp.aws.boehringer.com
+  # host: {{ include "chart.fullname" . }}
   to:
     kind: Service
     name: {{ include "chart.fullname" . }}
