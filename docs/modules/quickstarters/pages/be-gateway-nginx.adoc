@@ -14,6 +14,7 @@ Use this quickstarter when you want to use https://www.nginx.org[nginx] server w
 │   ├── entrypoint.sh - Enables runtime configurations and runs openresty
 │   └── nginx.conf - The nginx configuration
 ├── Jenkinsfile - Contains Jenkins build configuration
+├── .pre-commit-config.yaml
 ├── metadata.yml - Component metadata
 └── release-manager.yml - Configuration file for the Release Manager
 ----
@@ -108,9 +109,9 @@ Note that the xref:jenkins-shared-library:labelling.adoc[OpenShift resources wil
 
 ```yaml
 name: nginx
-description: "Enhanced nginx with Lua embeded. nginx [engine x] is an HTTP and reverse proxy server, a mail proxy server, and a generic TCP/UDP proxy server. Technologies: OpenResty/nginx 1.19.3.2"
+description: "Enhanced nginx with Lua embeded. nginx [engine x] is an HTTP and reverse proxy server, a mail proxy server, and a generic TCP/UDP proxy server. Technologies: OpenResty/nginx 1.25.3.1-1"
 supplier: https://openresty.org
-version: 1.21.4.1
+version: 1.25.3.1-1
 type: ods-service
 role: integration
 ```
@@ -121,6 +122,8 @@ There are two steps:
 
 * Build the container image.
 * Deploy.
+
+include::partial$secret-scanning-with-gitleaks.adoc
 
 == Builder agent used
 
